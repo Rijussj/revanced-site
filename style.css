@@ -6,132 +6,113 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  background: #0f0f0f;
   color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND ANIMATION */
+.bg-animation {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #ff0033 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveBg 10s linear infinite;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+@keyframes moveBg {
+  from {transform: translateY(0);}
+  to {transform: translateY(-50px);}
 }
 
 /* HEADER */
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 8%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 40px;
+  padding: 20px 8%;
 }
 
 .download-btn {
-  background: linear-gradient(45deg, #ff0033, #ff4d4d);
-  padding: 10px 18px;
+  background: #ff0033;
+  padding: 10px 20px;
   border-radius: 25px;
-  color: white;
   text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.download-btn:hover {
-  transform: scale(1.05);
+  color: white;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
 }
 
 .hero h2 {
   font-size: 42px;
-  font-weight: 800;
 }
 
-.hero p {
-  margin-top: 10px;
-  color: #aaa;
-}
-
+/* BUTTON */
 .btn {
   margin-top: 20px;
   display: inline-block;
   padding: 12px 25px;
-  border-radius: 30px;
   background: #ff0033;
-  color: white;
+  border-radius: 30px;
   text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
 
 /* FEATURES */
 .features {
-  padding: 60px 8%;
+  padding: 60px;
   text-align: center;
 }
 
 .grid {
-  margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
   padding: 25px;
+  background: #1a1a1a;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  background: rgba(255,255,255,0.08);
+  transform: translateY(-10px);
 }
 
-/* SCREENSHOTS */
+/* IMAGES */
 .images {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 20px;
   padding: 40px;
 }
 
 .images img {
-  width: 220px;
-  margin: 10px;
-  border-radius: 15px;
-  transition: 0.3s;
+  width: 200px;
+  border-radius: 10px;
 }
 
-.images img:hover {
-  transform: scale(1.05);
+/* SCROLL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
 }
 
-/* INSTALL */
-.install {
-  padding: 60px 8%;
-}
-
-.install ol {
-  margin-top: 20px;
-  color: #ccc;
-  line-height: 2;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  color: #777;
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
